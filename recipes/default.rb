@@ -57,9 +57,10 @@ end
 
 bash "install_npm" do
   user "root"
-    cwd "/tmp/"
-    code <<-EOH
-    curl http://npmjs.org/install.sh | clean=no sh
+  cwd "/tmp/"
+  code <<-EOH
+    curl -kLs https://npmjs.org/install.sh | clean=no sh
     EOH
+  creates "/usr/local/bin/npm"
 end
 
